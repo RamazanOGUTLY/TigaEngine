@@ -1,23 +1,25 @@
 package com.tiga.git.testgame;
 
+import org.lwjglx.util.vector.Vector2f;
+
 import com.tiga.git.engine.Window;
 
 public class Main implements Runnable {
 
 	public Thread TestGame;
 	public Window window;
-	public final int width = 640, height = 480;
+	public final Vector2f wh = new Vector2f(640, 480);
 	
 	public void start() {
 		
-		TestGame = new Thread(this, "TestGame");
-		TestGame.start();
+		Thread Testgame = new Thread(this, "TestGame");
+		Testgame.start();
 		
 	}
 	
 	public void init() {
 		
-		window = new Window(width, height, "RetroCraft");
+		window = new Window((int) wh.getX(), (int) wh.getY(), "TestGame");
 		window.create();
 		
 	}
